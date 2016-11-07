@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Proxy
 {
-    public class ServiceProxy<T> where T : class
+    public class HttpServiceProxy<T> where T : class
     {
         private static ProxyGenerator _generator;
         private static ProxyGenerator ServiceGenerator
@@ -26,7 +26,8 @@ namespace Proxy
 
         public T GetService()
         {
-            return ServiceGenerator.CreateInterfaceProxyWithoutTarget<T>(ProxyGenerationOptions.Default, new ServiceProxyHttpServiceInterceptor());
+            
+            return ServiceGenerator.CreateInterfaceProxyWithoutTarget<T>(ProxyGenerationOptions.Default, new HttpServiceProxyInterceptor());
         }
     }
 }

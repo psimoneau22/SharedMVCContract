@@ -10,7 +10,7 @@ using System.Web.Mvc;
 
 namespace Contract
 {
-    [BeelineHttpService("TestService")]
+    [BeelineHttpService("TestServicex")]
     public interface ITestService
     {
         [Route("Prim")]
@@ -18,6 +18,9 @@ namespace Contract
 
         [Route("Comp")]
         Task<TestModel> TestComplex(TestModel param1);
+
+        [Route("tx")]
+        Task TestVoid();
     }
     
     public class TestModel

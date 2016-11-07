@@ -77,8 +77,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ServiceProxyHttpServiceInterceptor.cs" />
-    <Compile Include="ServiceProxy.cs" />
+    <Compile Include="HttpServiceProxyInterceptor.cs" />
+    <Compile Include="HttpServiceProxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

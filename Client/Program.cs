@@ -18,16 +18,18 @@ namespace Client
 
         static async Task MainAsync()
         {
-            var svcProxy = new ServiceProxy<ITestService>();
+            var svcProxy = new HttpServiceProxy<ITestService>();
             var svc = svcProxy.GetService();
 
             var primitiveResult = svc.TestPrimitive("passed");
             var complexResult = svc.TestComplex(new TestModel { Prop1 = "passed" });
+            var voidResult = svc.TestVoid();
 
-            Console.WriteLine($"If async works, this line should print before results");
-
-            Console.WriteLine($"test primitive get: {await primitiveResult}");
-            Console.WriteLine($"test complex get: {(await complexResult).Prop1}");
+            Console.WriteLine($"this should write to the console 5 seconds before the next statement");            
+            Console.WriteLine($"test primitive: {await primitiveResult}");            
+            Console.WriteLine($"test complex: {(await complexResult).Prop1}");
+            await voidResult;
+            Console.WriteLine("test void: test passed");
 
             Console.Read();
         }
