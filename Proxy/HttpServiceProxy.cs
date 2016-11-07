@@ -11,23 +11,24 @@ namespace Proxy
 {
     public class HttpServiceProxy<T> where T : class
     {
-        private static ProxyGenerator _generator;
-        private static ProxyGenerator ServiceGenerator
-        {
-            get
+        private static ProxyGenerator ServiceGenerator { get; set; }
+        private static HttpServiceProxyInterceptor Interceptor { get; set; }
+
+        public HttpServiceProxy(){
+            if (ServiceGenerator == null)
             {
-                if (_generator == null)
-                {
-                    _generator = new ProxyGenerator();
-                }
-                return _generator;
+                ServiceGenerator = new ProxyGenerator();
+            }
+
+            if (Interceptor == null)
+            {
+                Interceptor = new HttpServiceProxyInterceptor();
             }
         }
 
         public T GetService()
         {
-            
-            return ServiceGenerator.CreateInterfaceProxyWithoutTarget<T>(ProxyGenerationOptions.Default, new HttpServiceProxyInterceptor());
+            return ServiceGenerator.CreateInterfaceProxyWithoutTarget<T>(ProxyGenerationOptions.Default, Interceptor);
         }
     }
 }
