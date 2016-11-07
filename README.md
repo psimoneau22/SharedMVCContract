@@ -6,5 +6,7 @@ This shows how to generate a dynamic client proxy based on a shared service cont
 Dependencies:
 
 ASP.NET MVC
+
 Castle DynamicProxy
+
 Newtonsoft Json.Net
