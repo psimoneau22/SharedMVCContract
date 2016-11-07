@@ -7,6 +7,15 @@ Limitations:
 
 Routes are limited to prefix at the interface/controller level and an action part at the method level.   All communication is done via HTTP POST messages to bypass complex model serialization to a query string (which would be required on GET methods)
 
+Proposed Alternate Solutions:
+
+Using WCF via ChannelFactory on client and server
+
+Using WCF ChannelFactory for client with WebHttpBinding and WebHttpBehavior to commuicate with MVC backend
+
+Using static proxy generation tool like Swagger
+
+
 Dependencies:
 
 ASP.NET MVC
